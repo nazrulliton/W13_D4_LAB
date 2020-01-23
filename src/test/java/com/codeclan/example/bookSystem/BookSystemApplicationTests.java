@@ -55,6 +55,10 @@ class BookSystemApplicationTests {
 		assertEquals(2, found.size());
 	}
 
-
+	@Test
+	public void canFindBookingByTown(){
+		List<Customer> found = customerRepository.findCustomerByBookingsCourseIdAndBookingsCourseTown( 1L, "Edinburgh");
+		assertEquals(2, found.size());
+	}
 
 }
