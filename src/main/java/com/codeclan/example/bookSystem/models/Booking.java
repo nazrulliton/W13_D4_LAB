@@ -23,8 +23,10 @@ public class Booking {
     private Customer customer;
 
 
-    public Booking(String date) {
+    public Booking(String date, Course course, Customer customer) {
         this.date = date;
+        this.course = course;
+        this.customer = customer;
     }
 
     public Booking(){
@@ -45,5 +47,21 @@ public class Booking {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
