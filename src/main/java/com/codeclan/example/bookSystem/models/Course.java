@@ -4,10 +4,13 @@ package com.codeclan.example.bookSystem.models;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "courses")
 public class Course {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,11 +20,15 @@ public class Course {
     private String town;
     @Column(name = "rating")
     private int rating;
+    @OneToMany(mappedBy = "course")
+    private List<Booking> bookings;
+
 
     public Course(String name, String town, int rating) {
         this.name = name;
         this.town = town;
         this.rating = rating;
+        this.bookings = new ArrayList<>();
     }
 
     public Course(){
@@ -58,5 +65,13 @@ public class Course {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 }
