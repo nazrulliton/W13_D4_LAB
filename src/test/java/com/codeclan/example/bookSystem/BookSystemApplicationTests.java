@@ -1,13 +1,36 @@
 package com.codeclan.example.bookSystem;
 
+import com.codeclan.example.bookSystem.models.Course;
+import com.codeclan.example.bookSystem.repositories.BookingRepository.BookingRepository;
+import com.codeclan.example.bookSystem.repositories.CourseRepository.CourseRepository;
+import com.codeclan.example.bookSystem.repositories.CustomerRepository.CustomerRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+@RunWith(SpringRunner.class)
 @SpringBootTest
 class BookSystemApplicationTests {
+	@Autowired
+	CourseRepository courseRepository;
+	@Autowired
+	BookingRepository bookingRepository;
+	@Autowired
+	CustomerRepository customerRepository;
 
 	@Test
 	void contextLoads() {
+	}
+
+	@Test
+	public void canFindCourseByRating(){
+		List<Course> found = courseRepository.findCourseByRating(3);
+		assertEquals("Java", found.get(0).getName());
 	}
 
 }

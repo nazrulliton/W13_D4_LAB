@@ -9,8 +9,11 @@ import com.codeclan.example.bookSystem.repositories.CustomerRepository.CustomerR
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DataLoader implements ApplicationRunner {
+
     @Autowired
     BookingRepository bookingRepository;
     @Autowired
@@ -18,7 +21,7 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     CustomerRepository customerRepository;
 
-    DataLoader(){
+    public DataLoader(){
 
     }
     public void run(ApplicationArguments args){
@@ -52,7 +55,7 @@ public class DataLoader implements ApplicationRunner {
         bookingRepository.save(booking4);
         Booking booking5 = new Booking("03-11-01", course2, customer4);
         bookingRepository.save(booking5);
-        
+
     }
 
 

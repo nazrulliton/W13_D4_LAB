@@ -2,6 +2,11 @@ package com.codeclan.example.bookSystem.repositories.CourseRepository;
 
 import com.codeclan.example.bookSystem.models.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-public interface CourseRepository extends JpaRepository<Course, Long>, CourseRepositoryCustom {
+import java.util.List;
+
+@RepositoryRestResource
+public interface CourseRepository extends JpaRepository<Course, Long> {
+    List<Course> findCourseByRating(int rating);
 }
