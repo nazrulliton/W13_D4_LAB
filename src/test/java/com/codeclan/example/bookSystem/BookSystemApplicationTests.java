@@ -42,4 +42,10 @@ class BookSystemApplicationTests {
 		assertEquals(2, found.size());
 	}
 
+	@Test
+	public void canFindCourseByBookingsCustomerId(){
+		List<Course> found = courseRepository.findCourseByBookingsCustomerId(4l);
+		assertEquals(2,found.size() );
+	}
+
 }
