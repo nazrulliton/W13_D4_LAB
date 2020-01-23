@@ -1,6 +1,7 @@
 package com.codeclan.example.bookSystem.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Course {
     private String town;
     @Column(name = "rating")
     private int rating;
+
     @OneToMany(mappedBy = "course")
     private List<Booking> bookings;
 

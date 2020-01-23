@@ -6,7 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource
+
 public interface CourseRepository extends JpaRepository<Course, Long> {
     List<Course> findCourseByRating(int rating);
     List<Course> findCourseByBookingsCustomerId(Long id);
