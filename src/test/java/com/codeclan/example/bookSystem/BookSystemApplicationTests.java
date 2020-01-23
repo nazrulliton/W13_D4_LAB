@@ -1,6 +1,7 @@
 package com.codeclan.example.bookSystem;
 
 import com.codeclan.example.bookSystem.models.Course;
+import com.codeclan.example.bookSystem.models.Customer;
 import com.codeclan.example.bookSystem.repositories.BookingRepository.BookingRepository;
 import com.codeclan.example.bookSystem.repositories.CourseRepository.CourseRepository;
 import com.codeclan.example.bookSystem.repositories.CustomerRepository.CustomerRepository;
@@ -13,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class BookSystemApplicationTests {
@@ -31,6 +34,12 @@ class BookSystemApplicationTests {
 	public void canFindCourseByRating(){
 		List<Course> found = courseRepository.findCourseByRating(3);
 		assertEquals("Java", found.get(0).getName());
+	}
+
+	@Test
+	public void canFindCustomersByBookingCustomerId(){
+		List<Customer> found = customerRepository.findCustomerByBookingsCourseId(1L);
+		assertEquals(2, found.size());
 	}
 
 }

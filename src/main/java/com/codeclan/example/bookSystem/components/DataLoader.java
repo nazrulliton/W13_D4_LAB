@@ -36,7 +36,6 @@ public class DataLoader implements ApplicationRunner {
         customerRepository.save(customer1);
         Customer customer2 = new Customer("Big Raz", "Glasgow", 41);
         customerRepository.save(customer2);
-
         Customer customer3 = new Customer("lil 'Gin", "LA", 35);
         customerRepository.save(customer3);
         Customer customer4 = new Customer("Lil Sandstorm", "Ske3t ske3t",21 );
